@@ -1,0 +1,73 @@
+@import '../../assets/scss/_common.scss';
+@import '../../assets/scss/_variables.scss';
+
+.header-wrapper {
+  display: block;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 3px solid $gray-blue-2;
+  height: 3rem;
+}
+
+.spacer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navigation-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 2.5rem;
+  a {
+    box-sizing: border-box;
+    display: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    color: $dark-blue-2;
+    &:hover {
+      box-shadow: 0 2px 0 $orange-1;
+      color: $dark-blue-1;
+    }
+  }
+}
+
+.user-action {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  color: $dark-blue-1;
+  > img {
+    max-height: 3rem;
+  }
+
+  > button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  max-height: 100%;
+}
+
+@media screen and (min-width: $md) {
+  .navigation-wrapper {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+  }
+
+  .header-wrapper {
+    height: 5rem;
+  }
+}
+
+@media screen and (min-width: $lg) {
+}
