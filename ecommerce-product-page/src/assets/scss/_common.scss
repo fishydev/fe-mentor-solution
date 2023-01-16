@@ -2,12 +2,8 @@
 
 .spacer-wrapper {
   margin: 0px auto;
-  max-width: 140rem;
-  width: calc(100% - 3rem);
-}
-
-.center {
   max-width: 1366px;
+  width: calc(100% - 3rem);
 }
 
 @media screen and (min-width: $md) {
