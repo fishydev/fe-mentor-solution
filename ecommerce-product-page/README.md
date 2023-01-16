@@ -55,4 +55,4 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## Author
 
-- Website - [Hafizh Adwinsyah](https://www.fishydev.netlify.app)
+- Website - [Hafizh Adwinsyah](https://fishydev.netlify.app)
