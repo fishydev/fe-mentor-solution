@@ -1,0 +1,9 @@
+@import '../../../assets/scss/variables';
+
+.btn {
+  cursor: pointer;
+  &.icon {
+    border: 0;
+    background-color: transparent;
+  }
+}
