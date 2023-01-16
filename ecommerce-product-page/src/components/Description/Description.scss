@@ -1,0 +1,76 @@
+@import '../../assets/scss/variables';
+ 
+.product-detail-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 2rem;
+
+  > .product__brand {
+    text-transform: uppercase;
+    letter-spacing: .15rem;
+    color: $orange-1;
+    font-weight: $bold;
+  }
+
+  > .product__name {
+    color: $dark-blue-1;
+    font-size: xx-large;
+    font-weight: $bold;
+  }
+
+  > .product__price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    > .price {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      > .current {
+        color: $dark-blue-1;
+        font-size: xx-large;
+        font-weight: $bold;
+        &::before {
+          content: '$';
+        }
+      }
+      > .discount {
+        background-color: $pale-orange-1;
+        color: $orange-1;
+        padding: 0.3rem;
+        border-radius: 0.25rem;
+        &::after {
+          content: '%';
+        }
+      }
+    }
+    > .ogprice {
+      color: $gray-blue-1;
+      font-weight: $bold;
+      text-decoration: line-through;
+      &::before {
+        content: '$';
+      }
+    }
+  }
+
+  > .product__description {
+    color: $dark-blue-2;
+    line-height: 1.75rem;
+  }
+}
+
+@media screen and (min-width: $md) {
+  .product-detail-container {
+    max-width: 35rem;
+
+    > .product__price {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: baseline;
+    }
+  }
+}
