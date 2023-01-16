@@ -1,0 +1,23 @@
+@import './_variables.scss';
+
+.spacer-wrapper {
+  margin: 0px auto;
+  max-width: 140rem;
+  width: calc(100% - 3rem);
+}
+
+.center {
+  max-width: 1366px;
+}
+
+@media screen and (min-width: $md) {
+  .spacer-wrapper {
+    width: calc(100% - 4.5rem);
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .spacer-wrapper {
+    width: calc(100% - 6rem);
+  }
+}
