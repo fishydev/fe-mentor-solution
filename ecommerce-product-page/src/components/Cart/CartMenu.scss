@@ -1,0 +1,41 @@
+@import "../../assets/scss/common.scss";
+@import "../../assets/scss/variables.scss";
+
+.cart-menu {
+  width: calc(100vw - 2rem);
+  box-sizing: border-box;
+  position: absolute;
+  background-color: $white;
+  border-radius: 1rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  top: 4.5rem;
+  z-index: 2000;
+  left: 1rem;
+  margin: 0px auto;
+}
+
+.cart-menu__head {
+  display: block;
+  padding: 2rem;
+  border-bottom: 1px solid $gray-blue-2;
+  h1 {
+    margin: 0;
+  }
+}
+
+.cart-menu__content {
+  display: block;
+  padding: 2rem;
+}
+
+.btn-checkout {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: $md) {
+  .cart-menu {
+    width: 21rem;
+    left: -10rem;
+  }
+}
