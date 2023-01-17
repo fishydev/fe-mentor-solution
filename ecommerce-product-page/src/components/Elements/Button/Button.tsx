@@ -1,5 +1,6 @@
 import "./Button.scss"
 import React, { ReactNode } from "react"
+import clsx from "clsx"
 
 type ButtonProps = {
   icon?: boolean
@@ -10,9 +11,11 @@ type ButtonProps = {
 
 const Button = (props: ButtonProps) => {
   const { icon, children, className } = props
-  const appendedClass =
-    "btn" + `${className ? ` ${className}` : ""}` + `${icon ? " icon" : ""}`
-  return <button className={appendedClass}>{children && children}</button>
+  return (
+    <button className={clsx("btn", className, icon ? "icon" : "")}>
+      {children && children}
+    </button>
+  )
 }
 
 export default Button

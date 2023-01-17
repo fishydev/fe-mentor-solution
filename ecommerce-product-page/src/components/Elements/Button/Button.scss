@@ -2,8 +2,15 @@
 
 .btn {
   cursor: pointer;
+  background-color: $orange-1;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: $bold;
+  color: $white;
+
   &.icon {
-    border: 0;
     background-color: transparent;
   }
 }
