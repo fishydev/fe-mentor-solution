@@ -6,6 +6,11 @@
   width: calc(100% - 3rem);
 }
 
+.page {
+  max-width: 1366px;
+  margin: 0px auto;
+}
+
 @media screen and (min-width: $md) {
   .spacer-wrapper {
     width: calc(100% - 4.5rem);

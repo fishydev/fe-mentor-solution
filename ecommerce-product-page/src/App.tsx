@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <Navbar />
       <main>
-        <div className="product-page">
+        <div className="product-page page">
           <Carousel />
           <Description {...product} />
         </div>
