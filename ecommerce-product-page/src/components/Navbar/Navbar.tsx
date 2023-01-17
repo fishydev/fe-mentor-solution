@@ -4,6 +4,7 @@ import CartSVG from "../../assets/images/icon-cart.svg"
 import MenuSVG from "../../assets/images/icon-menu.svg"
 import AvatarImage from "../../assets/images/image-avatar.png"
 import Button from "../Elements/Button/Button"
+import CartMenu from "../Cart/CartMenu"
 
 const Navbar = () => {
   return (
@@ -23,9 +24,12 @@ const Navbar = () => {
           </div>
         </nav>
         <div className="user-action">
-          <Button icon>
-            <img src={CartSVG} alt="" />
-          </Button>
+          <div className="cart-btn">
+            <Button icon>
+              <img src={CartSVG} alt="" />
+            </Button>
+            <CartMenu show={true} />
+          </div>
           <img src={AvatarImage} className="" alt="" />
         </div>
       </section>

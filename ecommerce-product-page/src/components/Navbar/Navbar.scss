@@ -74,6 +74,10 @@
   .nav__drawer {
     display: none;
   }
+
+  .cart-btn {
+    position: relative;
+  }
 }
 
 @media screen and (min-width: $lg) {
