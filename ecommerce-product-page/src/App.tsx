@@ -2,9 +2,11 @@ import React from "react"
 import Navbar from "./components/Navbar/Navbar"
 import Carousel from "./components/Carousel/Carousel"
 import Description from "./components/Description/Description"
+import { Product } from "./types"
 import "./App.scss"
 
-const product = {
+const product: Product = {
+  id: 0,
   brand: "Sneaker Company",
   name: "Fall Limited Edition Sneakers",
   description:
