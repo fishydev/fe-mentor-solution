@@ -1,4 +1,6 @@
 import "./Description.scss"
+import Icon from "../Elements/Icon/Icon"
+import Button from "../Elements/Button/Button"
 
 type DescriptionProps = {
   brand: string
@@ -22,6 +24,21 @@ const Description = (props: DescriptionProps) => {
           <span className="discount">{discount}</span>
         </div>
         <span className="ogprice">{ogprice}</span>
+      </div>
+      <div className="product__action">
+        <div className="product__action-amount">
+          <Button className="product__action-minus">
+            <Icon name="minus" />
+          </Button>
+          <span>2</span>
+          <Button className="product__action-plus">
+            <Icon name="plus" />
+          </Button>
+        </div>
+        <Button className="product__action-add">
+          <Icon name="cart" color="#ffffff" />
+          Add to Cart
+        </Button>
       </div>
     </section>
   )

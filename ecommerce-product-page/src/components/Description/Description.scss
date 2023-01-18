@@ -1,4 +1,5 @@
 @import '../../assets/scss/variables';
+@import '../../assets/scss/common';
  
 .product-detail-container {
   display: flex;
@@ -24,6 +25,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    margin-bottom: 1rem;
     > .price {
       display: flex;
       align-items: center;
@@ -59,6 +61,38 @@
   > .product__description {
     color: $dark-blue-2;
     line-height: 1.75rem;
+  }
+
+  > .product__action {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    gap: 1rem;
+
+    > .product__action-amount {
+      width: 8rem;
+      display: flex;
+      align-items: center;
+      background-color: $gray-blue-2;
+      border-radius: 1rem;
+
+      > span {
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      > .btn {
+        background-color: $gray-blue-2;
+      }
+    }
+
+    > .product__action-add {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
   }
 }
 

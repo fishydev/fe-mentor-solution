@@ -11,6 +11,10 @@
   margin: 0px auto;
 }
 
+.hidden {
+  display: hidden;
+}
+
 @media screen and (min-width: $md) {
   .spacer-wrapper {
     width: calc(100% - 4.5rem);
