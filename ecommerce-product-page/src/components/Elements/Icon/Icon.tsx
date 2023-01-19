@@ -5,19 +5,16 @@ type IconProps = {
   name: string
   className?: string
   color?: string
+  beforeInjection?: (svg: SVGSVGElement) => void
 }
 
 const Icon = (props: IconProps) => {
-  const { name, className, color } = props
+  const { name, className, color, beforeInjection } = props
   return (
     <ReactSVG
       src={`icons/icon-${name}.svg`}
       className={clsx(className)}
-      beforeInjection={(svg) => {
-        if (color) {
-          svg.setAttribute("fill", color)
-        }
-      }}
+      beforeInjection={beforeInjection}
     />
   )
 }

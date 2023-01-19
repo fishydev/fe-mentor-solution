@@ -2,17 +2,18 @@ import "./Button.scss"
 import React, { ReactNode } from "react"
 import clsx from "clsx"
 
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: boolean
-  className?: string
   children?: ReactNode
-  onClick?: (e: React.MouseEventHandler) => void
 }
 
 const Button = (props: ButtonProps) => {
-  const { icon, children, className } = props
+  const { icon, children, className, onClick } = props
   return (
-    <button className={clsx("btn", className, icon ? "icon" : "")}>
+    <button
+      className={clsx("btn", className, icon ? "icon" : "")}
+      onClick={onClick}
+    >
       {children && children}
     </button>
   )

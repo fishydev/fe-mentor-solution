@@ -36,7 +36,13 @@ const Description = (props: DescriptionProps) => {
           </Button>
         </div>
         <Button className="product__action-add">
-          <Icon name="cart" color="#ffffff" />
+          <Icon
+            name="cart"
+            beforeInjection={(svg) => {
+              const el = svg.querySelector("path")
+              el?.setAttribute("fill", "#ffffff")
+            }}
+          />
           Add to Cart
         </Button>
       </div>

@@ -5,8 +5,10 @@ import MenuSVG from "../../assets/images/icon-menu.svg"
 import AvatarImage from "../../assets/images/image-avatar.png"
 import Button from "../Elements/Button/Button"
 import CartMenu from "../Cart/CartMenu"
+import { useState } from "react"
 
 const Navbar = () => {
+  const [showCart, setShowCart] = useState(false)
   return (
     <header className="header-wrapper">
       <section className="spacer-wrapper">
@@ -16,19 +18,24 @@ const Navbar = () => {
               <img src={MenuSVG} alt="" />
             </Button>
             <img className="logo" src={logo} alt="" />
-            <a href="">Collections</a>
-            <a href="">Men</a>
-            <a href="">Women</a>
-            <a href="">About</a>
-            <a href="">Contact</a>
+            <a href="/">Collections</a>
+            <a href="/">Men</a>
+            <a href="/">Women</a>
+            <a href="/">About</a>
+            <a href="/">Contact</a>
           </div>
         </nav>
         <div className="user-action">
           <div className="cart-btn">
-            <Button icon>
+            <Button
+              icon
+              onClick={() => {
+                setShowCart(!showCart)
+              }}
+            >
               <img src={CartSVG} alt="" />
             </Button>
-            <CartMenu show={true} />
+            <CartMenu show={showCart} />
           </div>
           <img src={AvatarImage} className="" alt="" />
         </div>
