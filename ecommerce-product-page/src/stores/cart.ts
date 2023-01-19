@@ -5,8 +5,9 @@ type CartItem = Product & { amount: number }
 
 type CartStore = {
   content: CartItem[]
-  addItem: () => void
-  removeItem: () => void
+  addItem: (amount: number) => void
+  removeItem: (amount: number) => void
+  deleteItem: () => void
 }
 
 export const useCartStore = create<CartStore>((set, get) => ({
@@ -23,16 +24,29 @@ export const useCartStore = create<CartStore>((set, get) => ({
       amount: 0,
     },
   ],
-  addItem: () => {
+  addItem: (amount: number) => {
     set((state) => ({
-      content: [{ ...state.content[0], amount: state.content[0].amount++ }],
+      content: [
+        { ...state.content[0], amount: (state.content[0].amount += amount) },
+      ],
     }))
   },
-  removeItem: () => {
-    if (get().content[0].amount !== 0) {
+  removeItem: (amount: number) => {
+    if (get().content[0].amount > amount) {
       set((state) => ({
-        content: [{ ...state.content[0], amount: state.content[0].amount-- }],
+        content: [
+          { ...state.content[0], amount: (state.content[0].amount -= amount) },
+        ],
+      }))
+    } else {
+      set((state) => ({
+        content: [{ ...state.content[0], amount: 0 }],
       }))
     }
+  },
+  deleteItem: () => {
+    set((state) => ({
+      content: [{ ...state.content[0], amount: 0 }],
+    }))
   },
 }))

@@ -1,6 +1,8 @@
 import "./Description.scss"
 import Icon from "../Elements/Icon/Icon"
 import Button from "../Elements/Button/Button"
+import { useState } from "react"
+import { useCartStore } from "../../stores/cart"
 
 type DescriptionProps = {
   brand: string
@@ -13,6 +15,14 @@ type DescriptionProps = {
 
 const Description = (props: DescriptionProps) => {
   const { brand, description, discount, name, ogprice, price } = props
+  const [amount, setAmount] = useState(0)
+  const cart = useCartStore()
+
+  const addToCart = () => {
+    cart.addItem(amount)
+    setAmount(0)
+  }
+
   return (
     <section className="product-detail-container">
       <span className="product__brand">{brand}</span>
@@ -27,15 +37,21 @@ const Description = (props: DescriptionProps) => {
       </div>
       <div className="product__action">
         <div className="product__action-amount">
-          <Button className="product__action-minus">
+          <Button
+            className="product__action-minus"
+            onClick={() => setAmount(amount - 1)}
+          >
             <Icon name="minus" />
           </Button>
-          <span>2</span>
-          <Button className="product__action-plus">
+          <span>{amount}</span>
+          <Button
+            className="product__action-plus"
+            onClick={() => setAmount(amount + 1)}
+          >
             <Icon name="plus" />
           </Button>
         </div>
-        <Button className="product__action-add">
+        <Button className="product__action-add" onClick={() => addToCart()}>
           <Icon
             name="cart"
             beforeInjection={(svg) => {

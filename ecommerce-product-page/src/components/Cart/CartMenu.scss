@@ -17,20 +17,31 @@
 .cart-menu__head {
   display: block;
   padding: 2rem;
-  border-bottom: 1px solid $gray-blue-2;
+  border-bottom: 3px solid $gray-blue-2;
   h1 {
     margin: 0;
   }
 }
 
 .cart-menu__content {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2rem;
+  min-height: 125px;
 }
 
 .btn-checkout {
+  margin-top: 1rem;
   display: block;
   width: 100%;
+}
+
+.cart-menu__empty {
+  text-align: center;
+  font-weight: $bold;
+  color: $dark-blue-2;
+  display: block;
 }
 
 @media screen and (min-width: $md) {

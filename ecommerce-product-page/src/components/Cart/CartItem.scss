@@ -1,0 +1,52 @@
+@import "../../assets/scss/variables";
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cart-item__image {
+  width: 4rem;
+  object-fit: scale-down;
+  margin: 0.5rem 0;
+  border-radius: 0.5rem;
+}
+
+.cart-item__name {
+  color: $dark-blue-2;
+}
+
+.cart-item__description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cart-item__detail {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.cart-item__price {
+  color: $dark-blue-2;
+  font-weight: $normal;
+
+  &::before {
+    content: '$';
+  }
+}
+
+.cart-item__amount {
+  color: $dark-blue-2;
+  &::before {
+    content: ' x ';
+  }
+}
+
+.cart-item__total {
+  font-weight: $bold;
+  &::before {
+    content: '$';
+  }
+}
