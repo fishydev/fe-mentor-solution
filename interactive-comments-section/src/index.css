@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-moderate-blue: 238deg 40% 52%;
+    --color-soft-red: 358deg 79% 66%;
+    --color-light-grayish-blue: 239deg 57% 85%;
+    --color-pale-red: 357deg 100% 86%;
+    --color-dark-blue: 212deg 24% 26%;
+    --color-grayish-blue: 211deg 10% 45%;
+    --color-light-gray: 223deg 19% 93%;
+    --color-very-light-gray: 228deg 33% 97%;
+    --color-white: 0deg 0% 100%;
+    /* ... */
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
