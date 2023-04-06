@@ -4,7 +4,7 @@ const EditButton = () => {
   return (
     <button className="flex min-w-fit gap-2">
       <img className="object-contain" src={IconEdit} alt="reply" />
-      <span className="font-bold text-grayish-blue">Edit</span>
+      <span className="font-medium text-grayish-blue">Edit</span>
     </button>
   )
 }

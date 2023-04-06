@@ -17,3 +17,11 @@ export type Image = {
   png: string
   webp: string
 }
+
+export type CommentType = "reply" | "update" | "new"
+
+export type CommentData = {
+  content: string
+  id?: number
+  replyingTo?: number
+}
