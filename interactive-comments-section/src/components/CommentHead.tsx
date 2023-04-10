@@ -11,15 +11,33 @@ import UserTag from "./UserTag"
 import DeleteIcon from "../assets/icon-delete.svg"
 import EditIcon from "../assets/icon-edit.svg"
 import ReplyIcon from "../assets/icon-reply.svg"
+import { ParentContext } from "../context/ParentContext"
 
-type CommentHeadProps = {}
+type CommentHeadProps = {
+  onClickDelete: () => void
+  onClickReply: () => void
+  onClickEdit: () => void
+}
 
 const CommentHead = (props: CommentHeadProps) => {
+  const { onClickDelete, onClickReply, onClickEdit } = props
   const currentUser = useContext(UserContext)
   const comment = useContext(CommentContext)
 
   const isByCurrentUser = () => {
     return currentUser?.username === comment?.user.username
+  }
+
+  const handleDelete = () => {
+    onClickDelete()
+  }
+
+  const handleReply = () => {
+    onClickReply()
+  }
+
+  const handleEdit = () => {
+    onClickEdit()
   }
 
   return (
@@ -38,16 +56,28 @@ const CommentHead = (props: CommentHeadProps) => {
       </div>
       <div className="flex gap-8">
         {isByCurrentUser() && (
-          <Button icon={DeleteIcon} className="text-soft-red">
+          <Button
+            icon={DeleteIcon}
+            className="text-soft-red"
+            onClick={handleDelete}
+          >
             Delete
           </Button>
         )}
         {isByCurrentUser() ? (
-          <Button icon={EditIcon} className="text-moderate-blue">
+          <Button
+            icon={EditIcon}
+            className="text-moderate-blue"
+            onClick={onClickEdit}
+          >
             Edit
           </Button>
         ) : (
-          <Button icon={ReplyIcon} className="text-moderate-blue">
+          <Button
+            icon={ReplyIcon}
+            className="text-moderate-blue"
+            onClick={handleReply}
+          >
             Reply
           </Button>
         )}

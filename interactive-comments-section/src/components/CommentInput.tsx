@@ -32,7 +32,7 @@ const CommentInput = (props: CommentInputProps) => {
         className
       )}
     >
-      {type !== "update" && (
+      {type !== "edit" && (
         <img
           className="h-10"
           src={`${process.env.PUBLIC_URL}/${user?.image.png}`}

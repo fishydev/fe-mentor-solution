@@ -18,10 +18,4 @@ export type Image = {
   webp: string
 }
 
-export type CommentType = "reply" | "update" | "new"
-
-export type CommentData = {
-  content: string
-  id?: number
-  replyingTo?: number
-}
+export type CommentType = "reply" | "edit" | "new"
