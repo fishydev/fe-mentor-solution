@@ -8,11 +8,14 @@ import CommentInput from "./CommentInput"
 import { useCommentStore } from "../store/commentStore"
 import { UserContext } from "../context/UserContext"
 import { ParentContext } from "../context/ParentContext"
+import Overlay from "./Overlay"
+import DeleteCommentModal from "./DeleteCommentModal"
 
 type CommentBoxProps = Comment
 
 const CommentBox = (props: CommentBoxProps) => {
   const [inputType, setInputType] = useState<CommentType>()
+  const [showDelete, setShowDelete] = useState(false)
 
   const currentUser = useContext(UserContext)
   const parent = useContext(ParentContext)
@@ -22,7 +25,7 @@ const CommentBox = (props: CommentBoxProps) => {
   const edit = useCommentStore((state) => state.edit)
 
   const handleClickDelete = () => {
-    deleteComment(props.id, parent?.id)
+    setShowDelete(true)
   }
 
   const handleClickReply = () => {
@@ -46,6 +49,12 @@ const CommentBox = (props: CommentBoxProps) => {
     }
   }
 
+  const handleSubmitDelete = () => {
+    deleteComment(props.id, parent?.id)
+  }
+
+  const inputPlaceholder = inputType === "edit" ? props.content : ""
+
   return (
     <CommentContext.Provider value={props}>
       <div className="CommentBox">
@@ -65,9 +74,18 @@ const CommentBox = (props: CommentBoxProps) => {
             className="mt-2"
             type={inputType}
             onSubmit={handleSubmit}
+            placeholder={inputPlaceholder}
           />
         )}
       </div>
+      {showDelete && (
+        <Overlay>
+          <DeleteCommentModal
+            onDelete={handleSubmitDelete}
+            onCancel={() => setShowDelete(false)}
+          />
+        </Overlay>
+      )}
     </CommentContext.Provider>
   )
 }

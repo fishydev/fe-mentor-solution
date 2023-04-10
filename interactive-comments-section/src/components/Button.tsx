@@ -16,7 +16,7 @@ const Button = (props: ButtonProps) => {
       onClick={onClick}
     >
       {icon && <img className="object-contain" src={icon} alt="reply" />}
-      <span className="font-medium">{children}</span>
+      <span className="font-medium w-full text-center">{children}</span>
     </button>
   )
 }

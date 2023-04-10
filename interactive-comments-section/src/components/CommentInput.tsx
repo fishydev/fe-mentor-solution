@@ -8,11 +8,12 @@ type CommentInputProps = {
   type: CommentType
   className?: string
   onSubmit: (text: string, action: CommentType) => void
+  placeholder?: string
 }
 
 const CommentInput = (props: CommentInputProps) => {
-  const { type, className, onSubmit } = props
-  const [text, setText] = useState("")
+  const { type, className, onSubmit, placeholder } = props
+  const [text, setText] = useState(placeholder ? placeholder : "")
 
   const user = useContext(UserContext)
 

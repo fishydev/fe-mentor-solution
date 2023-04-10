@@ -19,3 +19,4 @@ export type Image = {
 }
 
 export type CommentType = "reply" | "edit" | "new"
+export type CommentScore = -1 | 0 | 1

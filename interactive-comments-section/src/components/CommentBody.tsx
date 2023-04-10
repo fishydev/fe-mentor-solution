@@ -5,9 +5,11 @@ const CommentBody = () => {
   const comment = useContext(CommentContext)
   return (
     <div>
-      <p className="text-slate-700 font-light">
+      <p className="text-grayish-blue">
         {comment?.replyingTo && (
-          <span className="font-medium">@{comment.replyingTo} </span>
+          <span className="text-moderate-blue font-medium">
+            @{comment.replyingTo}{" "}
+          </span>
         )}
         {comment?.content}
       </p>
