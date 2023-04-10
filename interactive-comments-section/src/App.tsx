@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import "./App.css"
 import dummy from "./data/data.json"
 import CommentThread from "./components/CommentThread"
 import { UserContext } from "./context/UserContext"
 import CommentInput from "./components/CommentInput"
-import { Comment, CommentType } from "./types"
+import { CommentType } from "./types"
 import { useCommentStore } from "./store/commentStore"
 
 function App() {

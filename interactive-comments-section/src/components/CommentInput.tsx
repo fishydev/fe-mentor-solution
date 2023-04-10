@@ -45,7 +45,7 @@ const CommentInput = (props: CommentInputProps) => {
         onChange={handleTextChange}
       />
       <Button
-        className="bg-moderate-blue uppercase py-2 px-6 text-white rounded-lg font-medium h-fit"
+        className="bg-moderate-blue uppercase py-2 px-6 text-white rounded-lg font-medium h-fit hover:bg-light-grayish-blue transition-colors"
         onClick={handleSubmit}
       >
         {type}

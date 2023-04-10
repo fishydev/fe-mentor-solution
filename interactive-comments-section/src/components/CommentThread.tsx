@@ -1,4 +1,3 @@
-import { CommentContext } from "../context/CommentContext"
 import { ParentContext } from "../context/ParentContext"
 import { Comment } from "../types"
 import CommentBox from "./CommentBox"
