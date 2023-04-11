@@ -39,7 +39,12 @@ const CommentBox = (props: CommentBoxProps) => {
   const handleSubmit = (text: string, action: CommentType) => {
     switch (action) {
       case "reply":
-        reply(currentUser!, text, props.user.username, parent!.id)
+        reply(
+          currentUser!,
+          text,
+          props.user.username,
+          parent?.id ? parent.id : props.id
+        )
         setInputType(undefined)
         break
       case "edit":
