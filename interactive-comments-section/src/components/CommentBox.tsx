@@ -10,6 +10,7 @@ import { UserContext } from "../context/UserContext"
 import { ParentContext } from "../context/ParentContext"
 import Overlay from "./Overlay"
 import DeleteCommentModal from "./DeleteCommentModal"
+import CommentFoot from "./CommentFoot"
 
 type CommentBoxProps = Comment
 
@@ -64,7 +65,7 @@ const CommentBox = (props: CommentBoxProps) => {
     <CommentContext.Provider value={props}>
       <div className="CommentBox">
         <div className="flex p-4 bg-white gap-4 rounded-xl">
-          <VoteButton />
+          <VoteButton className="hidden md:flex py-2" />
           <div className="flex flex-col gap-2 flex-grow">
             <CommentHead
               onClickDelete={handleClickDelete}
@@ -72,6 +73,11 @@ const CommentBox = (props: CommentBoxProps) => {
               onClickEdit={handleClickEdit}
             />
             <CommentBody />
+            <CommentFoot
+              onClickDelete={handleClickDelete}
+              onClickReply={handleClickReply}
+              onClickEdit={handleClickEdit}
+            />
           </div>
         </div>
         {inputType && (

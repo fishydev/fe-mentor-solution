@@ -7,14 +7,15 @@ import UserTag from "./UserTag"
 import DeleteIcon from "../assets/icon-delete.svg"
 import EditIcon from "../assets/icon-edit.svg"
 import ReplyIcon from "../assets/icon-reply.svg"
+import VoteButton from "./VoteButton"
 
-type CommentHeadProps = {
+type CommentFootProps = {
   onClickDelete: () => void
   onClickReply: () => void
   onClickEdit: () => void
 }
 
-const CommentHead = (props: CommentHeadProps) => {
+const CommentFoot = (props: CommentFootProps) => {
   const { onClickDelete, onClickReply, onClickEdit } = props
 
   const currentUser = useContext(UserContext)
@@ -25,20 +26,9 @@ const CommentHead = (props: CommentHeadProps) => {
   }
 
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex items-center gap-4">
-        <img
-          src={`${process.env.PUBLIC_URL}/${comment?.user.image.png}`}
-          alt={comment?.user.username}
-          className="h-10"
-        />
-        <span className="text-dark-blue font-medium">
-          {comment?.user.username}
-        </span>
-        {isByCurrentUser() && <UserTag />}
-        <span className="text-grayish-blue">{comment?.createdAt}</span>
-      </div>
-      <div className="hidden md:flex gap-8">
+    <div className="flex justify-between items-center md:hidden mt-4">
+      <VoteButton className="flex min-w-[80px]" />
+      <div className="flex gap-8">
         {isByCurrentUser() && (
           <Button
             icon={DeleteIcon}
@@ -70,4 +60,4 @@ const CommentHead = (props: CommentHeadProps) => {
   )
 }
 
-export default CommentHead
+export default CommentFoot

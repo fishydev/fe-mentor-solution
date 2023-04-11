@@ -29,13 +29,13 @@ const CommentInput = (props: CommentInputProps) => {
   return (
     <div
       className={clsx(
-        "flex gap-4 w-full p-2 bg-white rounded-xl p-4",
+        "flex flex-col md:flex-row gap-4 w-full bg-white rounded-xl p-4",
         className
       )}
     >
       {type !== "edit" && (
         <img
-          className="h-10"
+          className="h-10 hidden md:inline"
           src={`${process.env.PUBLIC_URL}/${user?.image.png}`}
           alt=""
         />
@@ -46,11 +46,24 @@ const CommentInput = (props: CommentInputProps) => {
         onChange={handleTextChange}
       />
       <Button
-        className="bg-moderate-blue uppercase py-2 px-6 text-white rounded-lg font-medium h-fit hover:bg-light-grayish-blue transition-colors"
+        className="hidden md:inline bg-moderate-blue uppercase py-2 px-6 text-white rounded-lg font-medium h-fit hover:bg-light-grayish-blue transition-colors"
         onClick={handleSubmit}
       >
         {type}
       </Button>
+      <div className="flex justify-between md:hidden">
+        <img
+          className="h-10"
+          src={`${process.env.PUBLIC_URL}/${user?.image.png}`}
+          alt=""
+        />
+        <Button
+          className="bg-moderate-blue uppercase py-2 px-6 text-white rounded-lg font-medium h-fit hover:bg-light-grayish-blue transition-colors"
+          onClick={handleSubmit}
+        >
+          {type}
+        </Button>
+      </div>
     </div>
   )
 }

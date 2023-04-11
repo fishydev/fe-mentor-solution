@@ -23,7 +23,7 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <main className="flex justify-center bg-slate-100 min-h-screen">
-        <div className="flex flex-col max-w-2xl gap-4 my-12">
+        <div className="flex flex-col md:max-w-3xl gap-4 p-4 max-w-full md:p-12">
           {comments.map((thread) => {
             return <CommentThread {...thread} key={thread.id} />
           })}
