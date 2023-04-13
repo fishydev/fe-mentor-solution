@@ -62,6 +62,9 @@ export const useCommentStore = create<CommentState>((set) => ({
       .comments.findIndex((comment) => comment.id === parent)
     set((state) => {
       const comments = [...state.comments]
+      if (!comments[parentIndex].replies) {
+        comments[parentIndex].replies = []
+      }
       comments[parentIndex].replies?.push({
         id: generateId(),
         content: content,
@@ -81,7 +84,10 @@ export const useCommentStore = create<CommentState>((set) => ({
         .comments.findIndex((comment) => comment.id === parent)
       set((state) => {
         const comments = [...state.comments]
-        const toEditIndex = comments.findIndex((comment) => comment.id === id)
+        const toEditIndex = comments[parentIndex].replies!.findIndex(
+          (comment) => comment.id === id
+        )
+
         comments[parentIndex].replies![toEditIndex] = {
           ...comments[parentIndex].replies![toEditIndex],
           content: content,
