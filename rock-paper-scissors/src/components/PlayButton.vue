@@ -2,24 +2,33 @@
 import clsx from 'clsx'
 import { ref } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   value: 'rock' | 'paper' | 'scissors'
+  result?: boolean
+}>()
+
+const emit = defineEmits<{
+  (e: 'click', value: 'rock' | 'paper' | 'scissors'): void
 }>()
 
 const pressed = ref(false)
 
 const pressButton = () => {
-  pressed.value = true
-  setTimeout(() => {
-    pressed.value = false
-  }, 400)
+  if (!props.result) {
+    pressed.value = true
+    setTimeout(() => {
+      pressed.value = false
+      emit('click', props.value)
+    }, 400)
+  }
 }
 </script>
 
 <template>
   <button
-    class="PlayButton flex items-center justify-center relative w-36 h-36"
+    :class="clsx('PlayButton flex items-center justify-center relative w-36 h-36')"
     @click="pressButton"
+    :disabled="result"
   >
     <div
       :class="
@@ -33,7 +42,7 @@ const pressButton = () => {
     <div
       :class="
         clsx(
-          'absolute rounded-full w-28 h-28 flex items-center justify-center bg-white p-4',
+          'absolute rounded-full flex items-center justify-center bg-white p-4 w-28 h-28',
           pressed ? 'pressed' : ''
         )
       "
