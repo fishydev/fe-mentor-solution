@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type { GameResults } from '@/types'
+
 defineProps<{
-  result: string | undefined
+  result: GameResults | undefined
 }>()
 
 defineEmits<{
@@ -10,7 +12,9 @@ defineEmits<{
 
 <template>
   <div class="GameResult flex flex-col gap-8 items-center">
-    <span class="text-center text-3xl uppercase font-bold">{{ result }}</span>
+    <span class="text-center text-3xl uppercase font-bold">{{
+      result && result === 'tie' ? result : `you ${result}`
+    }}</span>
     <button
       class="bg-white text-dark-text uppercase py-4 rounded-md w-56"
       @click="$emit('play-again')"

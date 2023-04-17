@@ -17,7 +17,7 @@ provide('score', readonly(score))
 </script>
 
 <template>
-  <main class="h-screen w-full p-8 flex flex-col items-center">
+  <main class="min-h-screen w-full p-8 flex flex-col items-center md:max-w-screen-md md:mx-auto">
     <HeaderScore />
     <GameStage @result="calculateScore" />
     <RulesButton @click="showRules = true" />

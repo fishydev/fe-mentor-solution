@@ -5,6 +5,7 @@ import { ref } from 'vue'
 const props = defineProps<{
   value: 'rock' | 'paper' | 'scissors'
   result?: boolean
+  isWin?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -26,10 +27,11 @@ const pressButton = () => {
 
 <template>
   <button
-    :class="clsx('PlayButton flex items-center justify-center relative w-36 h-36')"
+    :class="clsx('PlayButton flex items-center justify-center relative w-36 h-36 md:w-48 md:h-48')"
     @click="pressButton"
     :disabled="result"
   >
+    <div :class="clsx('absolute w-4/5 h-4/5 rounded-full', isWin ? 'win' : '')"></div>
     <div
       :class="
         clsx(
@@ -42,7 +44,7 @@ const pressButton = () => {
     <div
       :class="
         clsx(
-          'absolute rounded-full flex items-center justify-center bg-white p-4 w-28 h-28',
+          'absolute rounded-full flex items-center justify-center bg-white p-4 w-28 h-28 md:w-40 md:h-40',
           pressed ? 'pressed' : ''
         )
       "
@@ -80,6 +82,10 @@ const pressButton = () => {
   animation: pressed-shadow 0.3s linear both;
 }
 
+.win {
+  animation: 1s ease 0s 1 normal forwards running winning;
+}
+
 @keyframes pressed {
   20%,
   80% {
@@ -101,6 +107,14 @@ const pressButton = () => {
   50% {
     transform: translateY(8px);
     box-shadow: 0 2px;
+  }
+}
+
+@keyframes winning {
+  100% {
+    box-shadow: rgba(255, 255, 255, 0.04) 0px 0px 0px 40px,
+      rgba(255, 255, 255, 0.04) 0px 0px 0px 80px, rgba(255, 255, 255, 0.02) 0px 0px 0px 120px;
+    transform: scale(1.1);
   }
 }
 </style>
