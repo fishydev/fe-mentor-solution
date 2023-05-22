@@ -1,0 +1,30 @@
+nav {
+  font-family: "Barlow Condensed", sans-serif;
+  right: calc(-66.66%);
+  transition: right 0.5s;
+}
+
+nav.nav-open {
+  right: 0;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item -1;
+  font-weight: 400;
+}
+
+li::before {
+  display: inline-block;
+  content: "0" counter(item);
+  font-weight: 600;
+  counter-increment: item;
+  margin: 0 0.75rem 0 0;
+  width: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  li::before {
+    display: none;
+  }
+}
