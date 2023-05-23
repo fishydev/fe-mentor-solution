@@ -1,5 +1,7 @@
 import Title from "@/components/title"
-import TechnologyBg from "@/public/assets/technology/background-technology-mobile.jpg"
+import TechnologyBgMobile from "@/public/assets/technology/background-technology-mobile.jpg"
+import TechnologyBgTablet from "@/public/assets/technology/background-technology-tablet.jpg"
+import TechnologyBgDesktop from "@/public/assets/technology/background-technology-desktop.jpg"
 import Image from "next/image"
 import data from "@/api/data.json"
 import Tabs from "@/components/tabs"
@@ -45,9 +47,25 @@ export default function Technology() {
         type="number"
         images={technologies.images}
       />
+
+      {/* Background Image */}
       <Image
-        className="-z-10 w-full h-full top-0"
-        src={TechnologyBg}
+        className="-z-10 w-full h-full top-0 md:hidden"
+        src={TechnologyBgMobile}
+        alt="technology background"
+        quality={100}
+        style={{ objectFit: "cover", position: "fixed" }}
+      />
+      <Image
+        className="-z-10 w-full h-full top-0 hidden md:inline"
+        src={TechnologyBgTablet}
+        alt="technology background"
+        quality={100}
+        style={{ objectFit: "cover", position: "fixed" }}
+      />
+      <Image
+        className="-z-10 w-full h-full top-0 hidden lg:inline"
+        src={TechnologyBgDesktop}
         alt="technology background"
         quality={100}
         style={{ objectFit: "cover", position: "fixed" }}

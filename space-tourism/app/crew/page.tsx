@@ -1,5 +1,7 @@
 import Title from "@/components/title"
-import CrewBg from "@/public/assets/crew/background-crew-mobile.jpg"
+import CrewBgMobile from "@/public/assets/crew/background-crew-mobile.jpg"
+import CrewBgTablet from "@/public/assets/crew/background-crew-tablet.jpg"
+import CrewBgDesktop from "@/public/assets/crew/background-crew-desktop.jpg"
 import Image from "next/image"
 import data from "@/api/data.json"
 import Tabs from "@/components/tabs"
@@ -45,9 +47,25 @@ export default function Crew() {
       <div className="px-6 flex flex-col items-center flex-grow">
         <Title number={2} text="meet your crew" />
         <Tabs elements={crews.elements} images={crews.images} type="dots" />
+
+        {/* Background image */}
         <Image
-          className="-z-10 w-full h-full top-0"
-          src={CrewBg}
+          className="-z-10 w-full h-full top-0 md:hidden"
+          src={CrewBgMobile}
+          alt="crew background"
+          quality={100}
+          style={{ objectFit: "cover", position: "fixed" }}
+        />
+        <Image
+          className="-z-10 w-full h-full top-0 hidden md:inline"
+          src={CrewBgTablet}
+          alt="crew background"
+          quality={100}
+          style={{ objectFit: "cover", position: "fixed" }}
+        />
+        <Image
+          className="-z-10 w-full h-full top-0 hidden lg:inline"
+          src={CrewBgDesktop}
           alt="crew background"
           quality={100}
           style={{ objectFit: "cover", position: "fixed" }}

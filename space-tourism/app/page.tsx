@@ -1,5 +1,7 @@
 import Image from "next/image"
-import HomeBg from "@/public/assets/home/background-home-mobile.jpg"
+import HomeBgMobile from "@/public/assets/home/background-home-mobile.jpg"
+import HomeBgDesktop from "@/public/assets/home/background-home-desktop.jpg"
+import HomeBgTablet from "@/public/assets/home/background-home-tablet.jpg"
 import Link from "next/link"
 
 export default function Home() {
@@ -24,9 +26,25 @@ export default function Home() {
           </button>
         </Link>
       </div>
+
+      {/* Background image */}
       <Image
-        className="-z-10 w-full h-full top-0"
-        src={HomeBg}
+        className="-z-10 w-full h-full top-0 md:hidden"
+        src={HomeBgMobile}
+        alt="home background"
+        quality={100}
+        style={{ objectFit: "cover", position: "fixed" }}
+      />
+      <Image
+        className="-z-10 w-full h-full top-0 hidden md:inline"
+        src={HomeBgTablet}
+        alt="home background"
+        quality={100}
+        style={{ objectFit: "cover", position: "fixed" }}
+      />
+      <Image
+        className="-z-10 w-full h-full top-0 hidden lg:inline"
+        src={HomeBgDesktop}
         alt="home background"
         quality={100}
         style={{ objectFit: "cover", position: "fixed" }}

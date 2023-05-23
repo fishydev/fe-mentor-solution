@@ -1,7 +1,9 @@
 import { ReactNode } from "react"
 import InfoSection from "@/components/destination/InfoSection"
 import Title from "@/components/title"
-import DestinationBg from "@/public/assets/destination/background-destination-mobile.jpg"
+import DestinationBgMobile from "@/public/assets/destination/background-destination-mobile.jpg"
+import DestinationBgTablet from "@/public/assets/destination/background-destination-tablet.jpg"
+import DestinationBgDesktop from "@/public/assets/destination/background-destination-desktop.jpg"
 import Image from "next/image"
 import data from "@/api/data.json"
 import Tabs from "@/components/tabs"
@@ -54,9 +56,25 @@ export default function Destination() {
           images={destinations.images}
         />
       </div>
+
+      {/* Background Image */}
       <Image
-        className="-z-10 w-full h-full top-0"
-        src={DestinationBg}
+        className="-z-10 w-full h-full top-0 md:hidden"
+        src={DestinationBgMobile}
+        alt="destination background"
+        quality={100}
+        style={{ objectFit: "cover", position: "fixed" }}
+      />
+      <Image
+        className="-z-10 w-full h-full top-0 hidden md:inline"
+        src={DestinationBgTablet}
+        alt="destination background"
+        quality={100}
+        style={{ objectFit: "cover", position: "fixed" }}
+      />
+      <Image
+        className="-z-10 w-full h-full top-0 hidden lg:inline"
+        src={DestinationBgDesktop}
         alt="destination background"
         quality={100}
         style={{ objectFit: "cover", position: "fixed" }}

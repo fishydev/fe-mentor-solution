@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="flex justify-between px-6 pt-6 absolute w-screen">
+      <div className="flex justify-between px-6 pt-6 fixed w-screen">
         <Link href={"/"}>
           <Button>
             <Image src={LogoIcon} alt="home icon" />
@@ -74,7 +74,7 @@ const Navbar = () => {
       {/* Tablet & Desktop navbar */}
       <nav
         className={clsx(
-          "nav-open absolute top-0 text-[28px] tracking-[4.75] backdrop-blur-3xl p-8 hidden md:inline"
+          "nav-open fixed top-0 text-[28px] tracking-[4.75] backdrop-blur-3xl p-8 hidden md:inline"
         )}
       >
         <ol className="flex gap-12">
