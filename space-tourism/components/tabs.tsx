@@ -7,31 +7,48 @@ export type TabsProps = {
   elements: ReactNode[]
   images?: ReactNode[]
   titles?: string[]
+  imageBottom?: boolean
 }
 
 const Tabs = (props: TabsProps) => {
-  const { type, elements, titles, images } = props
+  const { type, elements, titles, images, imageBottom } = props
   const [open, setOpen] = useState(0)
 
   const handleClickTab = (index: number) => {
     setOpen(index)
   }
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="ImageCarousel flex flex-col items-center gap-8 flex-grow">
       {images &&
         images.map((image, index) => {
           return (
-            <div className={clsx(index !== open ? "hidden" : "")} key={index}>
-              {image}
-            </div>
+            <>
+              <div
+                className={clsx(
+                  index !== open ? "hidden" : "",
+                  imageBottom ? "order-3" : ""
+                )}
+                key={index}
+              >
+                {image}
+              </div>
+            </>
           )
         })}
-      <div className="Tabs flex gap-6 font-barlow uppercase">
+      <div
+        className={clsx(
+          imageBottom ? "order-2" : "",
+          "Tabs flex gap-6 font-barlow uppercase"
+        )}
+      >
         {elements.map((element, index) => {
           if (type === "dots") {
             return (
               <button
-                className="w-2 h-2 rounded-full bg-color-white"
+                className={clsx(
+                  imageBottom ? "order-2" : "",
+                  "w-2 h-2 rounded-full bg-color-white"
+                )}
                 key={index}
                 onClick={() => handleClickTab(index)}
               />
@@ -39,7 +56,9 @@ const Tabs = (props: TabsProps) => {
           } else if (type === "number") {
             return (
               <button
-                className="w-10 h-10 p-2 text-color-primary rounded-full bg-color-white"
+                className={clsx(
+                  "w-10 h-10 p-2 text-color-primary rounded-full bg-color-white"
+                )}
                 key={index}
                 onClick={() => handleClickTab(index)}
               >

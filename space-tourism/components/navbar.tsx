@@ -40,9 +40,11 @@ const Navbar = () => {
   return (
     <header>
       <div className="flex justify-between px-6 pt-6 absolute w-screen">
-        <Button>
-          <Image src={LogoIcon} alt="home icon" />
-        </Button>
+        <Link href={"/"}>
+          <Button>
+            <Image src={LogoIcon} alt="home icon" />
+          </Button>
+        </Link>
         <Button className="md:hidden" onClick={() => showNavs(true)}>
           <Image src={HamburgerIcon} alt="show navigation links" />
         </Button>
@@ -52,7 +54,7 @@ const Navbar = () => {
       <nav
         className={clsx(
           open ? "nav-open" : "",
-          "absolute md:hidden top-0 h-full w-4/6 text-[28px] tracking-[4.75] backdrop-blur-3xl p-8"
+          "fixed md:hidden top-0 h-full w-4/6 text-[28px] tracking-[4.75] backdrop-blur-3xl p-8"
         )}
       >
         <div className="flex justify-end mb-16">
@@ -72,7 +74,7 @@ const Navbar = () => {
       {/* Tablet & Desktop navbar */}
       <nav
         className={clsx(
-          "nav-open absolute top-0 text-[28px] tracking-[4.75] backdrop-blur-3xl p-8"
+          "nav-open absolute top-0 text-[28px] tracking-[4.75] backdrop-blur-3xl p-8 hidden md:inline"
         )}
       >
         <ol className="flex gap-12">

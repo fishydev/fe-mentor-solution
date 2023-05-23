@@ -25,10 +25,16 @@ const destinations = {
   images: destinationsData.map((dest) => {
     return (
       <div className="h-[225px] w-full" key={dest.name}>
-        <img
+        <Image
           className="max-h-full object-contain"
           src={dest.images.png}
           alt={dest.name}
+          height={225}
+          width={225}
+          style={{
+            objectFit: "contain",
+            position: "initial",
+          }}
         />
       </div>
     )
@@ -49,12 +55,11 @@ export default function Destination() {
         />
       </div>
       <Image
-        className="-z-10 sticky"
+        className="-z-10 w-full h-full top-0"
         src={DestinationBg}
-        fill
         alt="destination background"
         quality={100}
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", position: "fixed" }}
       />
     </>
   )

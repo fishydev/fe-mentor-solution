@@ -10,7 +10,7 @@ const technologies = {
   elements: technologiesData.map((tech) => {
     return (
       <>
-        <div className="px-6 flex flex-col items-center text-center gap-2">
+        <div className="px-6 flex flex-col items-center text-center gap-2 max-w-[450px]">
           <span className="text-lg font-belle uppercase text-color-secondary">
             the terminology...
           </span>
@@ -22,13 +22,13 @@ const technologies = {
   }),
   images: technologiesData.map((tech) => {
     return (
-      <div className="w-full" key={tech.name}>
+      <div className="w-screen" key={tech.name}>
         <img
-          className="max-h-full"
+          className="w-full"
           src={tech.images.landscape}
           alt={tech.name}
           style={{
-            objectFit: "contain",
+            objectFit: "fill",
           }}
         />
       </div>
@@ -46,12 +46,11 @@ export default function Technology() {
         images={technologies.images}
       />
       <Image
-        className="-z-10 absolute"
+        className="-z-10 w-full h-full top-0"
         src={TechnologyBg}
-        fill
         alt="technology background"
         quality={100}
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", position: "fixed" }}
       />
     </div>
   )

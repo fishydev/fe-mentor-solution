@@ -22,13 +22,16 @@ const crews = {
   }),
   images: crewsData.map((crew) => {
     return (
-      <div className="h-[225px] w-full" key={crew.name}>
-        <img
+      <div className="h-[300px] w-full" key={crew.name}>
+        <Image
           className="max-h-full"
           src={crew.images.png}
           alt={crew.name}
+          height={999}
+          width={999}
           style={{
             objectFit: "contain",
+            position: "initial",
           }}
         />
       </div>
@@ -39,16 +42,15 @@ const crews = {
 export default function Crew() {
   return (
     <>
-      <div className="px-6 flex flex-col items-center">
+      <div className="px-6 flex flex-col items-center flex-grow">
         <Title number={2} text="meet your crew" />
         <Tabs elements={crews.elements} images={crews.images} type="dots" />
         <Image
-          className="-z-10 absolute"
+          className="-z-10 w-full h-full top-0"
           src={CrewBg}
-          fill
           alt="crew background"
           quality={100}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover", position: "fixed" }}
         />
       </div>
     </>

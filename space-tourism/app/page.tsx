@@ -1,5 +1,6 @@
 import Image from "next/image"
 import HomeBg from "@/public/assets/home/background-home-mobile.jpg"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -15,19 +16,20 @@ export default function Home() {
             world experience!
           </p>
         </div>
-        <button className="rounded-full h-[150px] w-[150px] bg-color-white bottom-12">
-          <span className="text-color-primary font-belle text-[20px] leading-[23px] uppercase">
-            explore
-          </span>
-        </button>
+        <Link href={"/destination"}>
+          <button className="rounded-full h-[150px] w-[150px] bg-color-white mb-12">
+            <span className="text-color-primary font-belle text-[20px] leading-[23px] uppercase">
+              explore
+            </span>
+          </button>
+        </Link>
       </div>
       <Image
-        className="-z-10 absolute"
+        className="-z-10 w-full h-full top-0"
         src={HomeBg}
-        fill
         alt="home background"
         quality={100}
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", position: "fixed" }}
       />
     </>
   )

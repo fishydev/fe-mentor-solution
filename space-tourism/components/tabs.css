@@ -1,0 +1,8 @@
+@media screen and (min-width: 768px) {
+  .Crew .Tabs {
+    order: 2;
+  }
+  .Crew .ImageCarousel {
+    order: 3;
+  }
+}
