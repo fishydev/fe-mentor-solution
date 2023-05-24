@@ -1,8 +1,58 @@
-@media screen and (min-width: 768px) {
-  .Crew .Tabs {
-    order: 2;
+@media screen and (min-width: 1024px) {
+  .Destination.Tabs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 4rem 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
   }
-  .Crew .ImageCarousel {
-    order: 3;
+
+  .Destination .Images {
+    grid-area: 1 / 1 / 3 / 3;
+  }
+  .Destination .Buttons {
+    grid-area: 1 / 4 / 2 / 6;
+  }
+  .Destination .TabContent {
+    grid-area: 2 / 4 / 3 / 6;
+  }
+
+  .Crew.Tabs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 4rem;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .Crew .Images {
+    grid-area: 1 / 4 / 3 / 6;
+  }
+  .Crew .Buttons {
+    grid-area: 2 / 1 / 3 / 3;
+  }
+  .Crew .TabContent {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+  .Technology.Tabs {
+    display: grid;
+    grid-template-columns: 3rem repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+  }
+
+  .Technology .Images {
+    grid-area: 1 / 3 / 2 / 4;
+    justify-self: end;
+  }
+  .Technology .Buttons {
+    display: flex;
+    flex-direction: column;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .Technology .TabContent {
+    grid-area: 1 / 2 / 2 / 3;
   }
 }

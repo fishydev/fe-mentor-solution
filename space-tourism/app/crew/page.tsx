@@ -12,11 +12,13 @@ const crews = {
   elements: crewsData.map((crew, index) => {
     return (
       <>
-        <div className="flex flex-col items-center text-center gap-2 md:max-w-[600px]">
-          <span className="text-lg font-belle uppercase text-color-secondary">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-2 md:max-w-[600px]">
+          <span className="text-lg lg:text-3xl font-belle uppercase text-color-secondary">
             {crew.role}
           </span>
-          <span className="text-2xl font-belle uppercase">{crew.name}</span>
+          <span className="text-2xl lg:text-5xl font-belle uppercase lg:my-4">
+            {crew.name}
+          </span>
           <p className="body-text">{crew.bio}</p>
         </div>
       </>
@@ -24,7 +26,7 @@ const crews = {
   }),
   images: crewsData.map((crew) => {
     return (
-      <div className="h-[300px] w-full" key={crew.name}>
+      <div className="h-[500px] w-full" key={crew.name}>
         <Image
           className="max-h-full"
           src={crew.images.png}
@@ -44,9 +46,14 @@ const crews = {
 export default function Crew() {
   return (
     <>
-      <div className="px-6 flex flex-col items-center flex-grow">
+      <div className="px-6 flex flex-col items-center flex-grow lg:px-40">
         <Title number={2} text="meet your crew" />
-        <Tabs elements={crews.elements} images={crews.images} type="dots" />
+        <Tabs
+          className="Crew"
+          elements={crews.elements}
+          images={crews.images}
+          type="dots"
+        />
 
         {/* Background image */}
         <Image

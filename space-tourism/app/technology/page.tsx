@@ -12,11 +12,13 @@ const technologies = {
   elements: technologiesData.map((tech) => {
     return (
       <>
-        <div className="px-6 flex flex-col items-center text-center gap-2 max-w-[450px]">
-          <span className="text-lg font-belle uppercase text-color-secondary">
+        <div className="px-6 flex flex-col items-center lg:items-start text-center lg:text-start gap-2 max-w-[450px]">
+          <span className="text-lg lg:text-3xl font-barlow uppercase text-color-secondary">
             the terminology...
           </span>
-          <span className="text-2xl font-belle uppercase">{tech.name}</span>
+          <span className="text-2xl lg:text-5xl lg:my-4 font-belle uppercase">
+            {tech.name}
+          </span>
           <p className="body-text">{tech.description}</p>
         </div>
       </>
@@ -24,13 +26,27 @@ const technologies = {
   }),
   images: technologiesData.map((tech) => {
     return (
-      <div className="w-screen" key={tech.name}>
-        <img
-          className="w-full"
+      <div className="lg:h-full w-full" key={tech.name}>
+        <Image
+          className="max-h-full lg:hidden"
           src={tech.images.landscape}
           alt={tech.name}
+          height={999}
+          width={999}
           style={{
-            objectFit: "fill",
+            objectFit: "contain",
+            position: "initial",
+          }}
+        />
+        <Image
+          className="max-h-full hidden lg:inline"
+          src={tech.images.portrait}
+          alt={tech.name}
+          height={999}
+          width={999}
+          style={{
+            objectFit: "contain",
+            position: "initial",
           }}
         />
       </div>
@@ -40,13 +56,16 @@ const technologies = {
 
 export default function Technology() {
   return (
-    <div className="flex flex-col items-center">
-      <Title number={3} text="space launch 101" />
-      <Tabs
-        elements={technologies.elements}
-        type="number"
-        images={technologies.images}
-      />
+    <>
+      <div className="flex flex-col items-center lg:pl-40">
+        <Title number={3} text="space launch 101" />
+        <Tabs
+          className="Technology"
+          elements={technologies.elements}
+          type="number"
+          images={technologies.images}
+        />
+      </div>
 
       {/* Background Image */}
       <Image
@@ -70,6 +89,6 @@ export default function Technology() {
         quality={100}
         style={{ objectFit: "cover", position: "fixed" }}
       />
-    </div>
+    </>
   )
 }

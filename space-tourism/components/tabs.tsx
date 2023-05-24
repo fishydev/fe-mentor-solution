@@ -1,6 +1,7 @@
 "use client"
 import clsx from "clsx"
 import { ReactNode, useState } from "react"
+import "./tabs.css"
 
 export type TabsProps = {
   type: "dots" | "text" | "number"
@@ -8,23 +9,31 @@ export type TabsProps = {
   images?: ReactNode[]
   titles?: string[]
   imageBottom?: boolean
+  className?: string
 }
 
 const Tabs = (props: TabsProps) => {
-  const { type, elements, titles, images, imageBottom } = props
+  const { type, elements, titles, images, imageBottom, className } = props
   const [open, setOpen] = useState(0)
 
   const handleClickTab = (index: number) => {
     setOpen(index)
   }
   return (
-    <div className="ImageCarousel flex flex-col items-center gap-8 flex-grow">
+    <div
+      className={clsx(
+        className,
+        "Tabs flex flex-col items-center gap-8 flex-grow lg:inline"
+      )}
+    >
+      {/* Tab images */}
       {images &&
         images.map((image, index) => {
           return (
             <>
               <div
                 className={clsx(
+                  "Images",
                   index !== open ? "hidden" : "",
                   imageBottom ? "order-3" : ""
                 )}
@@ -38,26 +47,33 @@ const Tabs = (props: TabsProps) => {
       <div
         className={clsx(
           imageBottom ? "order-2" : "",
-          "Tabs flex gap-6 font-barlow uppercase"
+          "Buttons flex gap-6 font-barlow uppercase"
         )}
       >
+        {/* Tab header types */}
         {elements.map((element, index) => {
+          // Dot type
           if (type === "dots") {
             return (
               <button
                 className={clsx(
+                  open === index ? "bg-color-white" : "bg-color-secondary",
                   imageBottom ? "order-2" : "",
-                  "w-2 h-2 rounded-full bg-color-white"
+                  "w-4 h-4 rounded-full"
                 )}
                 key={index}
                 onClick={() => handleClickTab(index)}
               />
             )
           } else if (type === "number") {
+            // Number type
             return (
               <button
                 className={clsx(
-                  "w-10 h-10 p-2 text-color-primary rounded-full bg-color-white"
+                  open === index
+                    ? "bg-color-white text-color-primary"
+                    : "text-color-white",
+                  "w-10 h-10 p-2 rounded-full border-color-white border-2"
                 )}
                 key={index}
                 onClick={() => handleClickTab(index)}
@@ -66,6 +82,7 @@ const Tabs = (props: TabsProps) => {
               </button>
             )
           } else {
+            // Tab head with title type
             return (
               <button
                 className={clsx(
@@ -85,6 +102,7 @@ const Tabs = (props: TabsProps) => {
           }
         })}
       </div>
+      {/* Tab content */}
       <div className="TabContent">
         {elements.map((element, index) => {
           return (

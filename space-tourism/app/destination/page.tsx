@@ -18,21 +18,23 @@ const destinations = {
           <h2 className="text-6xl">{dest.name}</h2>
           <p className="body-text">{dest.description}</p>
           <div className="w-full border-b border-b-color-secondary my-8"></div>
-          <InfoSection title="avg. distance" value={dest.distance} />
-          <InfoSection title="est. travel time" value={dest.travel} />
+          <div className="flex flex-col lg:flex-row justify-around w-full">
+            <InfoSection title="avg. distance" value={dest.distance} />
+            <InfoSection title="est. travel time" value={dest.travel} />
+          </div>
         </div>
       </>
     )
   }),
   images: destinationsData.map((dest) => {
     return (
-      <div className="h-[225px] w-full" key={dest.name}>
+      <div className="h-full w-full" key={dest.name}>
         <Image
           className="max-h-full object-contain"
           src={dest.images.png}
           alt={dest.name}
-          height={225}
-          width={225}
+          height={500}
+          width={500}
           style={{
             objectFit: "contain",
             position: "initial",
@@ -47,9 +49,10 @@ const destinations = {
 export default function Destination() {
   return (
     <>
-      <div className="px-6 flex flex-col items-center text-center">
+      <div className="px-6 flex flex-col items-center text-center lg:px-40 pb-8">
         <Title number={1} text="pick your destination" />
         <Tabs
+          className="Destination"
           elements={destinations.elements}
           type="text"
           titles={destinations.titles}
